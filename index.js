@@ -50,8 +50,10 @@ function KareninAlani(kenaruzunlugu) {
 	4. Hesaplanan çemberin çevresi döndürülecektir.
 */
 
-function CemberinCevresi(/* kodlar buraya */) {
-  /* kodlar buraya */
+function CemberinCevresi(radius) {
+  let circle = 2 * pi * radius
+  return  circle;
+  
 }
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
@@ -64,7 +66,10 @@ function CemberinCevresi(/* kodlar buraya */) {
 	4. Hesaplanan çemberin alanı döndürülecektir.
 */
 
-function CemberinAlani(/* kodlar buraya */) {
+function CemberinAlani(radius) {
+
+    let circleArea = pi * Math.pow(radius, 2);
+    return circleArea;
   /* kodlar buraya */
 }
 
@@ -97,32 +102,70 @@ let ucetambolunenler,
   siralisayilar,
   tekraredensayilar;
 
-// 3a çözümü
-
-/* kodlar buraya */
-
+//3a çözümü
+enbuyuk = sayilar[0];
+enkucuk = sayilar[0];
+for (let i = 0; i < sayilar.length; i++) {
+  if (sayilar[i] > enbuyuk) {
+    enbuyuk = sayilar[i];
+  }
+  if (sayilar[i] < enkucuk) {
+    enkucuk = sayilar[i];
+  }
+}
+console.log(enbuyuk);
+console.log(enkucuk);
 // 3b çözümü:
 
-/* kodlar buraya */
+ucetambolunenler = [];
+sayilar.forEach((item) => {
+  if (item % 3 === 0) {
+    ucetambolunenler.push(item);
+  }
+});
 
-// 3c çözümü:
+console.log(ucetambolunenler);
+//3c çözümü:
 
-/* kodlar buraya */
+ucebolunenlerintoplami = ucetambolunenler.reduce((acc, val) => acc + val, 0);
+console.log(ucebolunenlerintoplami);
 
-// 3d çözümü
+//3d çözümü
 
-/* kodlar buraya */
+besyuzdenkucuksayilar = sayilar.filter((item) => item < 500);
+console.log(besyuzdenkucuksayilar);
 
-// 3e çözümü
+//3e çözümü
 
-/* kodlar buraya */
+siralisayilar = besyuzdenkucuksayilar.sort((a, b) => {
+  return a - b;
+});
 
-// 3f çözümü
+//3f çözümü
 
-/* kodlar buraya */
+tekraredensayilar = [];
+const depo = {};
+
+for (let element of sayilar) {
+  if (depo[element] !== undefined) {
+    depo[element]++;
+  } else {
+    depo[element] = 1;
+  }
+}
+
+for (let key in depo) {
+  if (depo[key] > 1) {
+    tekraredensayilar.push(`${key} sayısı ${depo[key]} kere tekrar edilmiştir`);
+  }
+}
+console.log(tekraredensayilar);
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
-
+function sa() {
+  console.log("Kodlar çalışıyor");
+  return "as";
+}
 function sa() {
   console.log("Kodlar çalışıyor");
   return "as";
